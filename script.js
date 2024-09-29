@@ -1,9 +1,21 @@
-// Play music automatically on page load
+// Wait for the document to load
 window.addEventListener('load', () => {
     const audio = document.querySelector('.song');
-    audio.play().catch(error => {
-        console.log('Autoplay failed due to browser restrictions:', error);
-    });
+
+    // Attempt to play audio immediately on page load
+    const playAudio = () => {
+        audio.play().catch(error => {
+            console.log('Autoplay failed due to browser restrictions:', error);
+        });
+    };
+
+    // Try to play audio on page load
+    playAudio();
+
+    // Optionally, listen for a user interaction as a fallback
+    document.addEventListener('click', playAudio);
+
+    // Start animations
     animationTimeline();
 });
 
