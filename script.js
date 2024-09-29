@@ -164,7 +164,7 @@ const animationTimeline = () => {
         }, {
             scale: 1,
             rotationY: 0,
-            color: "#ff69b4",
+            color: "#d81159",
             ease: Expo.easeOut,
         }, 0.1, "party")
         .from(".wish h5", 0.5, {
