@@ -1,13 +1,10 @@
+// Play music automatically on page load
 window.addEventListener('load', () => {
-  const audio = document.querySelector('.song');
-  const continueButton = document.getElementById('continueButton');
-
-  continueButton.addEventListener('click', () => {
+    const audio = document.querySelector('.song');
     audio.play().catch(error => {
-      console.log('Audio play failed:', error);
+        console.log('Autoplay failed due to browser restrictions:', error);
     });
     animationTimeline();
-  });
 });
 
 // Animation timeline
@@ -191,4 +188,5 @@ const animationTimeline = () => {
         .to(".last-smile", 0.5, {
             rotation: 90,
         }, "+=1");
+
 };
