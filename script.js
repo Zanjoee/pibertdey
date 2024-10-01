@@ -1,18 +1,9 @@
-// Wait for the document to load
+// Play music automatically on page load
 window.addEventListener('load', () => {
     const audio = document.querySelector('.song');
-
-    // Add a play button to trigger audio playback
-    const playButton = document.createElement('button');
-    playButton.textContent = 'Play';
-    playButton.addEventListener('click', () => {
-        audio.play().catch(error => {
-            console.log('Audio play failed:', error);
-        });
+    audio.play().catch(error => {
+        console.log('Autoplay failed due to browser restrictions:', error);
     });
-    document.body.appendChild(playButton);
-
-    // Start animations
     animationTimeline();
 });
 
