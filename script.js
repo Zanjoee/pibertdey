@@ -2,18 +2,15 @@
 window.addEventListener('load', () => {
     const audio = document.querySelector('.song');
 
-    // Attempt to play audio immediately on page load
-    const playAudio = () => {
+    // Add a play button to trigger audio playback
+    const playButton = document.createElement('button');
+    playButton.textContent = 'Play';
+    playButton.addEventListener('click', () => {
         audio.play().catch(error => {
-            console.log('Autoplay failed due to browser restrictions:', error);
+            console.log('Audio play failed:', error);
         });
-    };
-
-    // Try to play audio on page load
-    playAudio();
-
-    // Optionally, listen for a user interaction as a fallback
-    document.addEventListener('click', playAudio);
+    });
+    document.body.appendChild(playButton);
 
     // Start animations
     animationTimeline();
@@ -200,5 +197,4 @@ const animationTimeline = () => {
         .to(".last-smile", 0.5, {
             rotation: 90,
         }, "+=1");
-
 };
