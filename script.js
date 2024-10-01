@@ -1,10 +1,13 @@
-// Play music automatically on page load
 window.addEventListener('load', () => {
-    const audio = document.querySelector('.song');
+  const audio = document.querySelector('.song');
+  const continueButton = document.getElementById('continueButton');
+
+  continueButton.addEventListener('click', () => {
     audio.play().catch(error => {
-        console.log('Autoplay failed due to browser restrictions:', error);
+      console.log('Audio play failed:', error);
     });
     animationTimeline();
+  });
 });
 
 // Animation timeline
